@@ -1,0 +1,8 @@
+<mat-chip-list
+  class="mat-chip-list-stacked"
+  *ngFor="let category of categoryList"
+>
+  <mat-chip (click)="searchByCategory(category.id)">{{
+    category.name
+  }}</mat-chip>
+</mat-chip-list>

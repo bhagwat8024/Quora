@@ -1,0 +1,17 @@
+<app-filter-question
+  [question]="questionList"
+  (filterQuestion)="updateList($event)"
+></app-filter-question>
+<div *ngIf="isEmpty">
+  <img
+    src="http://arttengry.com/static/media/empty.59d15b3c.gif"
+    alt="We couldn't find anything"
+  />
+</div>
+<div *ngFor="let question of filterQuestionList">
+  <app-single-question
+    [question]="question"
+    [userLikesQuestion]="likedQuestionId"
+    [data]="num"
+  ></app-single-question>
+</div>

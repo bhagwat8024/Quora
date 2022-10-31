@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Quora Login</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap"
+      rel="stylesheet"
+    />-->
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <form
+          class="form col-md-4 offset-md-4 col-10 offset-1"
+          [formGroup]="formValue"
+        >
+          <h3>Login Here</h3>
+
+          <label for="username"
+            >UserName<span
+              class="text-danger"
+              *ngIf="
+                formValue.get('username').errors &&
+                formValue.get('username').hasError('required')
+              "
+              >*</span
+            ></label
+          >
+          <input
+            type="text"
+            placeholder="UserName"
+            id="username"
+            formControlName="username"
+            [class.valid]="
+              formValue.get('username').valid &&
+              (formValue.get('username').dirty ||
+                formValue.get('username').touched)
+            "
+            [class.invalid]="
+              formValue.get('username').invalid &&
+              (formValue.get('username').dirty ||
+                formValue.get('username').touched)
+            "
+          />
+          <div
+            *ngIf="
+              formValue.get('username').invalid &&
+              formValue.get('username').errors &&
+              (formValue.get('username').dirty ||
+                formValue.get('username').touched)
+            "
+          >
+            <small
+              class="text-danger"
+              *ngIf="formValue.get('username').hasError('required')"
+              >Username is Required</small
+            >
+          </div>
+          <label for="password" class="form-label"
+            >Password<span
+              class="text-danger"
+              *ngIf="
+                formValue.get('password').errors &&
+                formValue.get('password').hasError('required')
+              "
+              >*</span
+            ></label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="password"
+            formControlName="password"
+            placeholder="Password"
+            [class.valid]="
+              formValue.get('password').valid &&
+              (formValue.get('password').dirty ||
+                formValue.get('password').touched)
+            "
+            [class.invalid]="
+              formValue.get('password').invalid &&
+              (formValue.get('password').dirty ||
+                formValue.get('password').touched)
+            "
+          />
+          <div
+            *ngIf="
+              formValue.get('password').invalid &&
+              formValue.get('password').errors &&
+              (formValue.get('password').dirty ||
+                formValue.get('password').touched)
+            "
+          >
+            <small
+              class="text-danger"
+              *ngIf="formValue.get('password').hasError('required')"
+            >
+              This field is required.
+            </small>
+            <small
+              class="text-danger"
+              *ngIf="formValue.get('password').hasError('minlength')"
+            >
+              The minimum length for this field is
+              {{ formValue.get("password").errors["minlength"].requiredLength }}
+              characters
+            </small>
+            <small
+              class="text-danger"
+              *ngIf="formValue.get('password').hasError('maxlength')"
+            >
+              The maximum length for this field is
+              {{ formValue.get("password").errors["maxlength"].requiredLength }}
+              characters.
+            </small>
+          </div>
+          <div class="text-center p-2 mt-2">
+            <button class="p-3" (click)="login()">Log In</button>
+          </div>
+          <br />
+          <div class="text-center">
+            <a routerLink="/signup">Don't have an account !</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

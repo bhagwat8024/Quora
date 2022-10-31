@@ -1,0 +1,15 @@
+.inline{
+    float: left;
+}
+.form-inline{
+    float: right;
+    padding: 0px !important;
+}
+.container{
+    font-size: 8px !important;
+}
+.mat-button{
+    padding: 4px !important;
+    min-width: auto;
+    line-height: normal;
+}

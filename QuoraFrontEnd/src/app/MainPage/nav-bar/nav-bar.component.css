@@ -1,0 +1,11 @@
+.user{
+    border-radius:16px;
+}
+nav{
+    background-color: #212727;
+    padding:18px;
+    color: white;
+}
+.edit-profile{
+    float:right;
+}

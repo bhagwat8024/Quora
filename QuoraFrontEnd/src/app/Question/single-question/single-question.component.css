@@ -1,0 +1,30 @@
+
+ .user-icon{
+      padding-top: 8px;
+      align-items: center;
+  }
+  .title{
+      font-size: 16px;
+      cursor: pointer;
+  }
+  .favBtn{
+      color: red;
+  }
+  .reply{
+    width: 100%;
+  }
+  .user-name{
+    cursor: pointer;
+    float: left;
+  }
+  .dateAndcategory{
+    padding-left: 4px !important;
+    float: left;
+  }
+  #link{
+    color: gray;
+    text-decoration: none;
+  }
+  .title{
+    color: black;
+  }

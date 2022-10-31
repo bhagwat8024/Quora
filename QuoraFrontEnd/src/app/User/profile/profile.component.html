@@ -1,0 +1,70 @@
+<div class="row">
+  <div class="container mt-3 col-6 offset-3">
+    <mat-card class="profile-card">
+      <div class="container text-center">
+        <mat-spinner *ngIf="isLoading"></mat-spinner>
+      </div>
+      <div class="container" *ngIf="!isLoading">
+        <div class="row">
+          <div class="col-4 user-icon" rounded>
+            <div class="text-center">
+              <mat-icon class="icon">person</mat-icon>
+              <p>{{ user.username }}</p>
+            </div>
+          </div>
+          <div class="col-6 offset-1 p-2">
+            <mat-card-title class="ps-3">{{
+              user.firstName + " " + user.lastName
+            }}</mat-card-title>
+
+            <div class="row mt-4">
+              <button mat-button class="col-4 misc-btn">
+                <div>
+                  <span>{{ questionList.length }}</span>
+                </div>
+                <div><span>Posts</span></div>
+              </button>
+              <button
+                mat-button
+                class="col-4 misc-btn"
+                (click)="showFollowers()"
+              >
+                <div>
+                  <span>{{ user.followersCount }}</span>
+                </div>
+                <div><span>Followers</span></div>
+              </button>
+              <button
+                mat-button
+                class="col-4 misc-btn"
+                (click)="showFollowings()"
+              >
+                <div>
+                  <span>{{ user.followingsCount }}</span>
+                </div>
+                <div><span>Followings</span></div>
+              </button>
+            </div>
+          </div>
+        </div>
+        <mat-card-subtitle class="ps-3">{{ user.about }}</mat-card-subtitle>
+        <app-user-follow-edit-button
+          [user]="user"
+          (updateFollowerData)="getConnectionsData()"
+          (updateUserData)="getUserData()"
+        ></app-user-follow-edit-button>
+        <div class="mt-5">
+          <mat-tab-group>
+            <mat-tab label="Posts">
+              <mat-spinner *ngIf="questionLoader"></mat-spinner>
+              <app-question-list
+                [questionList]="questionList"
+                *ngIf="!questionLoader"
+              ></app-question-list
+            ></mat-tab>
+          </mat-tab-group>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<h3 *ngIf="isFollowers">Followers List</h3>
+<h3 *ngIf="!isFollowers">Followings List</h3>
+<div *ngFor="let user of users" class="list">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="user-icon text-center">
+        <mat-icon>person</mat-icon>
+      </div>
+      <mat-card-title class="name">{{
+        user.firstName + " " + user.lastName
+      }}</mat-card-title>
+      <mat-card-subtitle class="user-name"
+        >{{ user.username }}
+      </mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+</div>
+<button mat-button (click)="close()">Close</button>

@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Design by foolishdeveloper.com -->
+    <title>Quora SignUp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <form
+          class="form offset-md-1 col-md-10 col-10 offset-1 row"
+          [formGroup]="formValue"
+        >
+          <h3>Register Here</h3>
+          <div class="col-md-6">
+            <label for="username" class="form-label"
+              >UserName<span
+                class="text-danger"
+                *ngIf="
+                  formValue.get('username').errors &&
+                  formValue.get('username').hasError('required')
+                "
+                >*</span
+              ></label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="username"
+              formControlName="username"
+              placeholder="UserName"
+              [class.valid]="
+                formValue.get('username').valid &&
+                (formValue.get('username').dirty ||
+                  formValue.get('username').touched)
+              "
+              [class.invalid]="
+                formValue.get('username').invalid &&
+                (formValue.get('username').dirty ||
+                  formValue.get('username').touched)
+              "
+            />
+            <div
+              *ngIf="
+                formValue.get('username').invalid &&
+                formValue.get('username').errors &&
+                (formValue.get('username').dirty ||
+                  formValue.get('username').touched)
+              "
+            >
+              <small
+                class="text-danger"
+                *ngIf="formValue.get('username').hasError('required')"
+              >
+                This field is required.
+              </small>
+              <small
+                class="text-danger"
+                *ngIf="formValue.get('username').hasError('minlength')"
+              >
+                The minimum length for this field is
+                {{
+                  formValue.get("username").errors["minlength"].requiredLength
+                }}
+                characters
+              </small>
+              <small
+                class="text-danger"
+                *ngIf="formValue.get('username').hasError('maxlength')"
+              >
+                The maximum length for this field is
+                {{
+                  formValue.get("username").errors["maxlength"].requiredLength
+                }}
+                characters.
+              </small>
+            </div>
+            <label for="firstName" class="form-label"
+              >First Name<span
+                class="text-danger"
+                *ngIf="
+                  formValue.get('firstName').errors &&
+                  formValue.get('firstName').hasError('required')
+                "
+                >*</span
+              ></label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="firstName"
+              formControlName="firstName"
+              placeholder="First Name"
+              [class.valid]="
+                formValue.get('firstName').valid &&
+                (formValue.get('firstName').dirty ||
+                  formValue.get('firstName').touched)
+              "
+              [class.invalid]="
+                formValue.get('firstName').invalid &&
+                (formValue.get('firstName').dirty ||
+                  formValue.get('firstName').touched)
+              "
+            />
+            <div
+              *ngIf="
+                formValue.get('firstName').invalid &&
+                formValue.get('firstName').errors &&
+                (formValue.get('firstName').dirty ||
+                  formValue.get('firstName').touched)
+              "
+            >
+              <small
+                class="text-danger"
+                *ngIf="formValue.get('firstName').hasError('required')"
+              >
+                This field is required.
+              </small>
+              <small
+                class="text-danger"
+                *ngIf="formValue.get('firstName').hasError('minlength')"
+              >
+                The minimum length for this field is
+                {{
+                  formValue.get("firstName").errors["minlength"].requiredLength
+                }}
+                characters
+              </small>
+              <small
+                class="text-danger"
+                *ngIf="formValue.get('firstName').hasError('maxlength')"
+              >
+                The maximum length for this field is
+                {{
+                  formValue.get("firstName").errors["maxlength"].requiredLength
+                }}
+                characters.
+              </small>
+            </div>
+            <label for="lastName" class="form-label"
+              >Last Name<span
+                class="text-danger"
+                *ngIf="
+                  formValue.get('lastName').errors &&
+                  formValue.get('lastName').hasError('required')
+                "
+                >*</span
+              ></label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="lastName"
+              formControlName="lastName"
+              placeholder="Last Name"
+              [class.valid]="
+                formValue.get('lastName').valid &&
+                (formValue.get('lastName').dirty ||
+                  formValue.get('lastName').touched)
+              "
+              [class.invalid]="
+                formValue.get('lastName').invalid &&
+                (formValue.get('lastName').dirty ||
+                  formValue.get('lastName').touched)
+              "
+            />
+            <div
+              *ngIf="
+                formValue.get('lastName').invalid &&
+                formValue.get('lastName').errors &&
+                (formValue.get('lastName').dirty ||
+                  formValue.get('lastName').touched)
+              "
+            >
+              <small
+                class="text-danger"
+                *ngIf="formValue.get('lastName').hasError('required')"
+              >
+                This field is required.
+              </small>
+              <small
+                class="text-danger"
+                *ngIf="formValue.get('lastName').hasError('minlength')"
+              >
+                The minimum length for this field is
+                {{
+                  formValue.get("lastName").errors["minlength"].requiredLength
+                }}
+                characters
+              </small>
+              <small
+                class="text-danger"
+                *ngIf="formValue.get('lastName').hasError('maxlength')"
+              >
+                The maximum length for this field is
+                {{
+                  formValue.get("lastName").errors["maxlength"].requiredLength
+                }}
+                characters.
+              </small>
+            </div>
+            <label for="email" class="form-label"
+              >Email
+              <span
+                class="text-danger"
+                *ngIf="
+                  formValue.get('email').errors ||
+                  formValue.get('email').hasError('required')
+                "
+                >*</span
+              ></label
+            >
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              formControlName="email"
+              placeholder="Email Address"
+              [class.valid]="
+                formValue.get('email').valid &&
+                (formValue.get('email').dirty || formValue.get('email').touched)
+              "
+              [class.invalid]="
+                formValue.get('email').invalid &&
+                (formValue.get('email').dirty || formValue.get('email').touched)
+              "
+            />
+            <div
+              *ngIf="
+                formValue.get('email').invalid &&
+                formValue.get('email').errors &&
+                (formValue.get('email').dirty || formValue.get('email').touched)
+              "
+            >
+              <small
+                class="text-danger"
+                *ngIf="formValue.get('email').hasError('required')"
+              >
+                This field is required.
+              </small>
+              <small
+                class="text-danger"
+                *ngIf="formValue.get('email').hasError('email')"
+              >
+                This is not an Email.
+              </small>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="password" class="form-label"
+              >Password<span
+                class="text-danger"
+                *ngIf="
+                  formValue.get('password').errors &&
+                  formValue.get('password').hasError('required')
+                "
+                >*</span
+              ></label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="password"
+              formControlName="password"
+              placeholder="Password"
+              [class.valid]="
+                formValue.get('password').valid &&
+                (formValue.get('password').dirty ||
+                  formValue.get('password').touched)
+              "
+              [class.invalid]="
+                formValue.get('password').invalid &&
+                (formValue.get('password').dirty ||
+                  formValue.get('password').touched)
+              "
+            />
+            <div
+              *ngIf="
+                formValue.get('password').invalid &&
+                formValue.get('password').errors &&
+                (formValue.get('password').dirty ||
+                  formValue.get('password').touched)
+              "
+            >
+              <small
+                class="text-danger"
+                *ngIf="formValue.get('password').hasError('required')"
+              >
+                This field is required.
+              </small>
+              <small
+                class="text-danger"
+                *ngIf="formValue.get('password').hasError('minlength')"
+              >
+                The minimum length for this field is
+                {{
+                  formValue.get("password").errors["minlength"].requiredLength
+                }}
+                characters
+              </small>
+              <small
+                class="text-danger"
+                *ngIf="formValue.get('password').hasError('maxlength')"
+              >
+                The maximum length for this field is
+                {{
+                  formValue.get("password").errors["maxlength"].requiredLength
+                }}
+                characters.
+              </small>
+            </div>
+            <label for="cpassword" class="form-label"
+              >Confirm Password<span
+                class="text-danger"
+                *ngIf="
+                  formValue.get('cpassword').errors &&
+                  formValue.get('cpassword').hasError('required')
+                "
+                >*</span
+              ></label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="cpassword"
+              formControlName="cpassword"
+              placeholder="Confirm Password"
+              [class.valid]="
+                formValue.get('cpassword').valid &&
+                (formValue.get('cpassword').dirty ||
+                  formValue.get('cpassword').touched)
+              "
+              [class.invalid]="
+                formValue.get('cpassword').invalid &&
+                (formValue.get('cpassword').dirty ||
+                  formValue.get('cpassword').touched)
+              "
+            />
+            <div
+              *ngIf="
+                formValue.errors['mismatch'] &&
+                (formValue.controls['cpassword'].dirty ||
+                  formValue.controls['cpassword'].touched)
+              "
+            >
+              <small class="text-danger" *ngIf="formValue.hasError('mismatch')">
+                Password Not Match.<br />
+              </small>
+              <small
+                class="text-danger"
+                *ngIf="formValue.get('cpassword').hasError('required')"
+              >
+                This field is required.
+              </small>
+              <small
+                class="text-danger"
+                *ngIf="formValue.get('cpassword').hasError('minlength')"
+              >
+                The minimum length for this field is
+                {{
+                  formValue.get("cpassword").errors["minlength"].requiredLength
+                }}
+                characters
+              </small>
+              <small
+                class="text-danger"
+                *ngIf="formValue.get('cpassword').hasError('maxlength')"
+              >
+                The maximum length for this field is
+                {{
+                  formValue.get("cpassword").errors["maxlength"].requiredLength
+                }}
+                characters.
+              </small>
+              <small
+                class="text-danger"
+                *ngIf="formValue.get('cpassword').hasError('mismatch')"
+                >Password mismatch</small
+              >
+            </div>
+            <label for="phone" class="form-label"
+              >Phone Number<span
+                class="text-danger"
+                *ngIf="
+                  formValue.get('phone').errors &&
+                  formValue.get('phone').hasError('required')
+                "
+                >*</span
+              ></label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="phone"
+              formControlName="phone"
+              placeholder="Phone Number"
+              [class.valid]="
+                formValue.get('phone').valid &&
+                (formValue.get('phone').dirty || formValue.get('phone').touched)
+              "
+              [class.invalid]="
+                formValue.get('phone').invalid &&
+                (formValue.get('phone').dirty || formValue.get('phone').touched)
+              "
+            />
+            <div
+              *ngIf="
+                formValue.controls['phone'].dirty ||
+                formValue.controls['phone'].touched
+              "
+            >
+              <small
+                class="text-danger"
+                *ngIf="formValue.get('phone').hasError('required')"
+              >
+                This field is required.
+              </small>
+              <small
+                class="text-danger"
+                *ngIf="formValue.get('phone').hasError('minlength')"
+              >
+                The minimum length for this field is
+                {{ formValue.get("phone").errors["minlength"].requiredLength }}
+                characters
+              </small>
+              <small
+                class="text-danger"
+                *ngIf="formValue.get('phone').hasError('maxlength')"
+              >
+                The maximum length for this field is
+                {{ formValue.get("phone").errors["maxlength"].requiredLength }}
+                characters.
+              </small>
+            </div>
+            <div class="text-center p-2 mt-2">
+              <button
+                class="p-3"
+                (click)="signup()"
+                [disabled]="formValue.invalid"
+              >
+                Sign Up
+              </button>
+            </div>
+            <br />
+            <div class="text-center">
+              <a [routerLink]="['/login']">Already have an account !</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

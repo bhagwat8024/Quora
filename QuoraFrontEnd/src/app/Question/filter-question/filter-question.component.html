@@ -1,0 +1,40 @@
+<div class="container">
+  <mat-card class="example-card">
+    <mat-card-subtitle>
+      <div class="inline">
+        Likes
+        <button mat-button (click)="sortByLike()">
+          <mat-icon *ngIf="isIncByLike == true"
+            >keyboard_double_arrow_up</mat-icon
+          ><mat-icon *ngIf="isIncByLike == false"
+            >keyboard_double_arrow_down</mat-icon
+          >
+        </button>
+        Replies<button mat-button (click)="sortByReplies()">
+          <mat-icon *ngIf="isIncByReplies == true"
+            >keyboard_double_arrow_up</mat-icon
+          ><mat-icon *ngIf="isIncByReplies == false"
+            >keyboard_double_arrow_down</mat-icon
+          >
+        </button>
+        By Date<button mat-button (click)="sortByDate()">
+          <mat-icon *ngIf="isIncByDate == true"
+            >keyboard_double_arrow_up</mat-icon
+          ><mat-icon *ngIf="isIncByDate == false"
+            >keyboard_double_arrow_down</mat-icon
+          >
+        </button>
+      </div>
+      <form class="form-inline" [formGroup]="formValue">
+        <input
+          placeholder="By Author"
+          type="text"
+          formControlName="author"
+        /><button mat-button (click)="byAuthor()">
+          <mat-icon>search</mat-icon>
+        </button>
+      </form>
+      <br />
+    </mat-card-subtitle>
+  </mat-card>
+</div>

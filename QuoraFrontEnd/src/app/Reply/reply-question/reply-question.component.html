@@ -1,0 +1,17 @@
+<div class="container mb-3">
+  <mat-card>
+    <mat-card-header>
+      <div mat-card-avatar class="user-icon text-center">
+        <mat-icon>person</mat-icon>
+      </div>
+      <mat-card-subtitle class="reply-title"
+        >{{ reply.user.firstName }} on {{ reply.date }}</mat-card-subtitle
+      >
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+        {{ reply.description }}
+      </p>
+    </mat-card-content>
+  </mat-card>
+</div>

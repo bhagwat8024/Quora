@@ -1,0 +1,11 @@
+
+.follow-btn{
+    width: 100%;
+    background-color: #212727;
+    color: white;
+}
+.unfollow-btn,.edit-btn{
+    width: 100%;
+    background-color: white;
+    color: black;
+}

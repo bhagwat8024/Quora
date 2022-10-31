@@ -1,0 +1,31 @@
+<div class="reply-section">
+  <div class="reply-div row" *ngIf="isLoggedIn() == true">
+    <div mat-card-avatar class="user-icon text-center col-2">
+      <mat-icon>person</mat-icon>
+    </div>
+    <form [formGroup]="formValue" class="col-8 reply-form">
+      <mat-form-field class="reply" appearance="fill">
+        <mat-label>Reply</mat-label>
+        <input
+          matInput
+          placeholder="Write your reply.."
+          formControlName="description"
+        />
+      </mat-form-field>
+    </form>
+    <button mat-button class="col-2" (click)="postReply()">Post</button>
+  </div>
+  <div class="replies" *ngFor="let reply of topReplies">
+    <app-reply-question [reply]="reply"></app-reply-question>
+  </div>
+  <div id="showMore">
+    <button
+      mat-button
+      rounded
+      (click)="openShowAllReplies()"
+      *ngIf="replies.length > 5"
+    >
+      Show More
+    </button>
+  </div>
+</div>

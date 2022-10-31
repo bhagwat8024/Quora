@@ -1,0 +1,5 @@
+<h2>All Replies</h2>
+<div *ngFor="let reply of data">
+  <app-reply-question [reply]="reply"></app-reply-question>
+</div>
+<button mat-button [mat-dialog-close]>Close</button>

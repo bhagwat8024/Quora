@@ -1,0 +1,11 @@
+.mat-card-title{
+    font-size: 16px;
+}
+.mat-card{
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+.list{
+        Overflow-y:scroll; 
+        height: 80%;
+}

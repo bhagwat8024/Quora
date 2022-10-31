@@ -1,0 +1,57 @@
+<nav>
+  <div class="row">
+    <div class="col">
+      <button
+        mat-icon-button
+        (click)="goToMain()"
+      >
+      <span>Quora</span>
+      </button>
+
+      
+      <span class="example-spacer"></span>
+    </div>
+    <div class="col">
+      <app-search-bar></app-search-bar>
+    </div>
+    <div class="col">
+      <div class="edit-profile">
+        <button
+          mat-icon-button
+          routerLink="/login"
+          *ngIf="isLoggedIn() == null"
+          matPrefix
+        >
+          <mat-icon>login</mat-icon>
+        </button>
+        <button
+          mat-icon-button
+          (click)="addQuestion()"
+          *ngIf="isLoggedIn()"
+          matPrefix
+        >
+          <mat-icon>add</mat-icon>
+        </button>
+        &nbsp;
+        <button
+          mat-icon-button
+          routerLink="/user"
+          class="border user"
+          *ngIf="isLoggedIn()"
+          (click)="toProfile()"
+        >
+          <mat-icon>person</mat-icon>
+        </button>
+        &nbsp;
+        <button
+          mat-icon-button
+          (click)="logout()"
+          *ngIf="isLoggedIn()"
+          matPrefix
+        >
+          <mat-icon>logout</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>

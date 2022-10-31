@@ -1,0 +1,51 @@
+<div class="container mb-3 row mt-3">
+  <div *ngIf="noQuestionFound" class="col-8 offset-3">
+    <img
+      src="http://arttengry.com/static/media/empty.59d15b3c.gif"
+      alt="We couldn't find anything"
+    />
+  </div>
+  <mat-card
+    class="example-card"
+    *ngIf="!noQuestionFound"
+    class="col-8 offset-3"
+  >
+    <mat-card-header>
+      <div mat-card-avatar class="user-icon text-center">
+        <mat-icon>person</mat-icon>
+      </div>
+      <mat-card-title class="title">{{ question.title }}</mat-card-title>
+      <mat-card-subtitle class="user-name"
+        ><a
+          [routerLink]="['/profile', question.user.id]"
+          target="_blank"
+          id="link"
+          >{{ question.user.firstName }}</a
+        >
+      </mat-card-subtitle>
+      <mat-card-subtitle class="dateAndcategory">
+        on {{ question.date }} in
+        {{ question.category.name }}</mat-card-subtitle
+      >
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+        {{ question.description }}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="likeToggle()">
+        <mat-icon *ngIf="isLike == false">favorite_border</mat-icon
+        ><mat-icon *ngIf="isLike == true" class="favBtn">favorite</mat-icon
+        >&nbsp;<span>{{ question.likes }}</span>
+      </button>
+      <button mat-button (click)="showReplies()">
+        <mat-icon>chat_bubble_outline</mat-icon>&nbsp;<span>{{
+          question.totalReplies
+        }}</span>
+      </button>
+      <button mat-button><mat-icon>share</mat-icon></button>
+    </mat-card-actions>
+    <app-top-reply-div [question]="question"></app-top-reply-div>
+  </mat-card>
+</div>
